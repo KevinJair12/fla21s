@@ -157,3 +157,21 @@ body{
         font-size: 1rem;
     }
 }
+
+#flowersNextBtn {
+    display: none; /* se muestra con JS */
+    margin: 20px auto 0 auto; /* separa del texto y centra horizontalmente */
+    display: block; /* necesario para que margin auto funcione */
+    font-size: 1.1rem;
+    padding: 10px 24px;
+    border-radius: 50px;
+    background-color: #0a2be9;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#flowersNextBtn:hover {
+    background-color: rgb(50, 194, 194);
+}
