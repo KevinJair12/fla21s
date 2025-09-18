@@ -28,7 +28,7 @@
   var EC_MONTH = 9;       // Mes 1-12, por ejemplo 9 para septiembre
   var EC_DAY = 21;        // Día del mes, por ejemplo 21
   var EC_HOUR = 8;        // Hora 0-23 en Ecuador, por ejemplo 8 para 08:00
-  var EC_MINUTE = 20;     // Minutos 0-59, por ejemplo 20
+  var EC_MINUTE = 15;     // Minutos 0-59, por ejemplo 20
 
   // No cambies debajo de esta línea para la fecha: convierte Ecuador (UTC-5) a UTC
   var target = new Date(Date.UTC(EC_YEAR, EC_MONTH - 1, EC_DAY, EC_HOUR + 5, EC_MINUTE, 0));
@@ -60,6 +60,7 @@
 
   init();
 })();
+
 
 
 
