@@ -64,7 +64,7 @@ setInterval(updateLyrics, 1000);
   var finalEl = document.getElementById('finalMessage');
   if(!el) return;
 
-  var firstMsg = "Estas flores son para ti 💛. Te las mereces por darme de tu tiempo, incluso cuando tienes otras responsabilidades. Gracias por ser como eres; tu presencia hace mis días un poquito más bonitos ✨ (Baja un poquito mas)";
+  var firstMsg = "Estas flores son para ti 💛. Te las mereces por darme de tu tiempo, incluso cuando tienes otras responsabilidades. Gracias por ser como eres; tu presencia hace mis días un poquito más bonitos ✨           (Baja un poquito mas)";
   var finalMsg = "Ahora quiero pedirte algo por mí 🙏. No te tomará más de 10-15 minutos y me encantaría que sea justo ahora, mientras lees. Por favor, sal lo más pronto que puedas a la salida de tu conjunto y recibe un pequeño detalle 🎁. No me escribas, no me preguntes; solo hazlo y confía en mí. Hazlo en este momento… y luego me cuentas 😊";
 
   function typeInto(target, text, onDone){
