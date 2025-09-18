@@ -33,7 +33,7 @@
   // No cambies debajo de esta línea para la fecha: convierte Ecuador (UTC-5) a UTC
   var target = new Date(Date.UTC(EC_YEAR, EC_MONTH - 1, EC_DAY, EC_HOUR + 5, EC_MINUTE, 0));
 
-  var beforeMsg = 'Te dije que revises el domingo 8:15am jeje no te va a slair la sorpresa sino ese día, no te desesperes 😊';
+  var beforeMsg = 'Te dije que revises el domingo 8:15am jeje no te va a salir la sorpresa sino ese día, no te desesperes 😊';
   var greetMsg = 'Buenos días, Srta. Mimi ☀️. Espero hayas amanecido bien. Me gustaría que te tomes unos 10-15 minutos de tu tiempo (no será más). Hoy es hora de tu sorpresa, espero que te guste ✨💛';
 
   function isBeforeTarget(now){
@@ -60,6 +60,7 @@
 
   init();
 })();
+
 
 
 
