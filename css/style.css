@@ -158,30 +158,4 @@ body{
     }
 }
 
-/* En main.css o style.css */
-#flowersNextBtn {
-    display: none;
-    margin: 20px auto 0 auto;
-    display: block;
-    font-size: 1.2rem;
-    padding: 12px 28px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #0a2be9, #39c6d6); /* Gradiente para más dinamismo */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 10px rgba(57, 198, 214, 0.5); /* Sombra y resplandor */
-    transition: all 0.3s ease;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-#flowersNextBtn:hover {
-    background: linear-gradient(45deg, #39c6d6, #0a2be9);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 15px rgba(57, 198, 214, 0.7);
-    transform: translateY(-2px); /* Elevación al pasar el ratón */
-}
-#flowersNextBtn:active {
-    transform: translateY(0); /* Efecto de presión */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+
