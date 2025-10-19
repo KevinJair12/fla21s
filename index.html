@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -74,32 +74,28 @@
         
         <!-- Interactive Message 1 -->
         <div class="interactive-message" id="interactiveMessage1">
-            <div class="interactive-content">
-                <div class="interactive-icon">💭</div>
-                <p class="interactive-text">
-                    Antes de todo sabes nunca supe como te gusta que te llame más:<br>
-                    Carlita, Noemi, Mimi? (escríbelo)
-                </p>
-                <div class="input-container">
-                    <input type="text" id="nameInput" placeholder="Escribe aquí..." class="name-input">
-                    <button id="nameSubmit" class="btn btn-primary">Continuar</button>
-                </div>
+            <div class="interactive-icon">💭</div>
+            <p class="interactive-text">
+                Antes de todo sabes nunca supe como te gusta que te llame más:<br>
+                Carlita, Noemi, Mimi? (escríbelo)
+            </p>
+            <div class="input-container">
+                <input type="text" id="nameInput" placeholder="Escribe aquí..." class="name-input">
+                <button id="nameSubmit" class="btn btn-primary">Continuar</button>
             </div>
         </div>
         
         <!-- Interactive Message 2 -->
         <div class="interactive-message" id="interactiveMessage2">
-            <div class="interactive-content">
-                <div class="interactive-icon">💕</div>
-                <p class="interactive-text">
-                    Está bien si quieres que te llame así, pero me gusta mucho decirte preciosa<br>
-                    pero hay otra manera en la que me gustaría llamarte.<br>
-                    ¿Quieres saberlo?
-                </p>
-                <div class="button-container">
-                    <button id="yesBtn" class="btn btn-success">Sí</button>
-                    <button id="noBtn" class="btn btn-danger">No</button>
-                </div>
+            <div class="interactive-icon">💕</div>
+            <p class="interactive-text">
+                Está bien si quieres que te llame así, pero me gusta mucho decirte preciosa<br>
+                pero hay otra manera en la que me gustaría llamarte.<br>
+                ¿Quieres saberlo?
+            </p>
+            <div class="button-container">
+                <button id="yesBtn" class="btn btn-success">Sí</button>
+                <button id="noBtn" class="btn btn-danger">No</button>
             </div>
         </div>
         
@@ -108,6 +104,11 @@
             <div class="interactive-content">
                 <div class="interactive-icon">😊</div>
                 <p class="interactive-text" id="responseText"></p>
+                <div class="button-container">
+                    <button id="continueFromResponse" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Continuar
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -172,11 +173,11 @@
                         <source src="pista.mp3" type="audio/mpeg">
                     </audio>
                     
-                    <div id="mainStoryMessage" style="background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 30px; margin-bottom: 30px; min-height: 200px; border: 3px solid rgba(255, 182, 193, 0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.2); text-align: center; position: relative; transition: all 0.8s ease;">
-                        <p id="mainStoryText" style="font-size: 2.2rem; line-height: 1.6; margin: 0; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.1);"></p>
+                    <div id="mainStoryMessage" style="background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 20px; margin-bottom: 20px; min-height: 150px; border: 2px solid rgba(255, 182, 193, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.15); text-align: center; position: relative; transition: all 0.8s ease;">
+                        <p id="mainStoryText" style="font-size: 1.8rem; line-height: 1.4; margin: 0; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.1);"></p>
                     </div>
-                    <div id="mainStoryImage" style="text-align: center; display: none; margin-bottom: 30px; position: relative; transition: all 0.8s ease;">
-                        <img id="mainStoryImageElement" src="" alt="Historia" style="max-width: 100%; height: 600px; object-fit: cover; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 4px solid rgba(255, 182, 193, 0.4);">
+                    <div id="mainStoryImage" style="text-align: center; display: none; margin-bottom: 20px; position: relative; transition: all 0.8s ease;">
+                        <img id="mainStoryImageElement" src="" alt="Historia" style="max-width: 100%; height: 500px; object-fit: cover; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: 2px solid rgba(255, 182, 193, 0.3);">
                     </div>
                     
                     <!-- Botón Siguiente (inicialmente deshabilitado) -->
