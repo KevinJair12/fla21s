@@ -1,31 +1,305 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>Flowers</title>
+    <title>Una Declaratoria Especial</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="night">
-        <div class="stars"></div>
-        <div class="shooting-stars"></div>
-    </div>
 
-    <div id="intro" class="intro-card">
-        <p id="typingText"></p>
-        <div class="button">
-            <button id="nextBtn" class="botones" style="display:none;">
-                Siguiente
-            </button>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content">
+                        <h1 class="hero-title animate__animated animate__fadeInDown">
+                            <span class="highlight-text">Hay días que no se olvidan</span>
+                        </h1>
+                        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                            Y este día no será la excepción
+                        </p>
+                        <div class="hero-divider animate__animated animate__fadeIn animate__delay-2s"></div>
+                        <p class="hero-description animate__animated animate__fadeInUp animate__delay-3s">
+                            Una historia que merece ser contada, un momento que merece ser recordado
+                        </p>
+                        <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-4s">
+                            <button class="btn btn-primary btn-lg" id="startButton">
+                                <i class="fas fa-play" id="playIcon"></i> <span id="buttonText">Comenzar Historia</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Romantic Message -->
+        <div class="romantic-message" id="romanticMessage">
+            <div class="romantic-content">
+                <div class="romantic-heart">💕</div>
+                <p class="romantic-text">
+                    Gracias por hacer mis días más lindos, divertidos y hacerme sentir que estás conmigo en cada momento bueno o malo.
+                </p>
+                <div class="romantic-heart">💖</div>
+            </div>
+        </div>
+        
+        <!-- Final Message -->
+        <div class="final-message" id="finalMessage">
+            <div class="final-content">
+                <div class="final-flower">🌸</div>
+                <p class="final-text">
+                    Pero ahora estás lista para la historia verdadera?<br>
+                    No es una historia extensa, pero ha ido floreciendo de la manera más dulce.
+                </p>
+                <div class="final-flower">🌺</div>
+            </div>
+        </div>
+        
+        <!-- Interactive Message 1 -->
+        <div class="interactive-message" id="interactiveMessage1">
+            <div class="interactive-content">
+                <div class="interactive-icon">💭</div>
+                <p class="interactive-text">
+                    Antes de todo sabes nunca supe como te gusta que te llame más:<br>
+                    Carlita, Noemi, Mimi? (escríbelo)
+                </p>
+                <div class="input-container">
+                    <input type="text" id="nameInput" placeholder="Escribe aquí..." class="name-input">
+                    <button id="nameSubmit" class="btn btn-primary">Continuar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive Message 2 -->
+        <div class="interactive-message" id="interactiveMessage2">
+            <div class="interactive-content">
+                <div class="interactive-icon">💕</div>
+                <p class="interactive-text">
+                    Está bien si quieres que te llame así, pero me gusta mucho decirte preciosa<br>
+                    pero hay otra manera en la que me gustaría llamarte.<br>
+                    ¿Quieres saberlo?
+                </p>
+                <div class="button-container">
+                    <button id="yesBtn" class="btn btn-success">Sí</button>
+                    <button id="noBtn" class="btn btn-danger">No</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Response Message -->
+        <div class="interactive-message" id="responseMessage">
+            <div class="interactive-content">
+                <div class="interactive-icon">😊</div>
+                <p class="interactive-text" id="responseText"></p>
+            </div>
+        </div>
+        
+        <!-- Gratitude Message -->
+        <div class="gratitude-message" id="gratitudeMessage">
+            <div class="gratitude-content">
+                <div class="gratitude-header">
+                    <div class="gratitude-icon">🙏</div>
+                    <h2 class="gratitude-title">Un Momento Especial</h2>
+                </div>
+                
+                <div class="gratitude-text-container">
+                    <p class="gratitude-text-main">
+                        Mi agradecimiento especial es a Guillermo Lasso, sin él nada de esto habría sido posible
+                    </p>
+                    <p class="gratitude-text-joke">
+                        JaJa... es broma pero entiendes la referencia 😄
+                    </p>
+                </div>
+                
+                <div class="gratitude-decoration">
+                    <div class="decoration-line"></div>
+                    <div class="decoration-heart">💕</div>
+                    <div class="decoration-line"></div>
+                </div>
+                
+                <button id="continueStoryBtn" class="btn btn-elegant">
+                    <i class="fas fa-arrow-right"></i>
+                    Continuar Historia
+                </button>
+            </div>
+        </div>
+        
+        
+        <!-- Floating Elements -->
+        <div class="floating-hearts">
+            <i class="fas fa-heart floating-heart heart-1"></i>
+            <i class="fas fa-heart floating-heart heart-2"></i>
+            <i class="fas fa-heart floating-heart heart-3"></i>
+            <i class="fas fa-heart floating-heart heart-4"></i>
+            <i class="fas fa-heart floating-heart heart-5"></i>
+        </div>
+        
+        <!-- Floating Flowers -->
+        <div class="floating-flowers">
+            <div class="flower flower-1 flower-rose">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="25" fill="currentColor" opacity="0.8"/>
+                    <circle cx="35" cy="35" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="65" cy="35" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="35" cy="65" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="65" cy="65" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="50" cy="20" r="6" fill="currentColor" opacity="0.5"/>
+                    <circle cx="80" cy="50" r="6" fill="currentColor" opacity="0.5"/>
+                    <circle cx="50" cy="80" r="6" fill="currentColor" opacity="0.5"/>
+                    <circle cx="20" cy="50" r="6" fill="currentColor" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="flower flower-2 flower-lily">
+                <svg viewBox="0 0 100 100">
+                    <ellipse cx="50" cy="50" rx="15" ry="30" fill="currentColor" opacity="0.8"/>
+                    <ellipse cx="50" cy="50" rx="30" ry="15" fill="currentColor" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.9"/>
+                </svg>
+            </div>
+            <div class="flower flower-3 flower-daisy">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.9"/>
+                    <ellipse cx="50" cy="35" rx="12" ry="6" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="50" cy="65" rx="12" ry="6" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="35" cy="50" rx="6" ry="12" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="65" cy="50" rx="6" ry="12" fill="currentColor" opacity="0.7"/>
+                </svg>
+            </div>
+            <div class="flower flower-4 flower-tulip">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 20 Q40 35 50 50 Q60 35 50 20 Z" fill="currentColor" opacity="0.8"/>
+                    <rect x="45" y="50" width="10" height="20" fill="currentColor" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="flower flower-5 flower-orchid">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="20" fill="currentColor" opacity="0.7"/>
+                    <circle cx="40" cy="40" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="60" cy="40" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="40" cy="60" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="60" cy="60" r="5" fill="currentColor" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="flower flower-6 flower-rose">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="25" fill="currentColor" opacity="0.8"/>
+                    <circle cx="35" cy="35" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="65" cy="35" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="35" cy="65" r="8" fill="currentColor" opacity="0.6"/>
+                    <circle cx="65" cy="65" r="8" fill="currentColor" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="flower flower-7 flower-lily">
+                <svg viewBox="0 0 100 100">
+                    <ellipse cx="50" cy="50" rx="15" ry="30" fill="currentColor" opacity="0.8"/>
+                    <ellipse cx="50" cy="50" rx="30" ry="15" fill="currentColor" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.9"/>
+                </svg>
+            </div>
+            <div class="flower flower-8 flower-daisy">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.9"/>
+                    <ellipse cx="50" cy="35" rx="12" ry="6" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="50" cy="65" rx="12" ry="6" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="35" cy="50" rx="6" ry="12" fill="currentColor" opacity="0.7"/>
+                    <ellipse cx="65" cy="50" rx="6" ry="12" fill="currentColor" opacity="0.7"/>
+                </svg>
+            </div>
+            <div class="flower flower-9 flower-tulip">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 20 Q40 35 50 50 Q60 35 50 20 Z" fill="currentColor" opacity="0.8"/>
+                    <rect x="45" y="50" width="10" height="20" fill="currentColor" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="flower flower-10 flower-orchid">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="20" fill="currentColor" opacity="0.7"/>
+                    <circle cx="40" cy="40" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="60" cy="40" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="40" cy="60" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="60" cy="60" r="5" fill="currentColor" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Falling Petals -->
+        <div class="falling-petals">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="petal petal-6"></div>
+            <div class="petal petal-7"></div>
+            <div class="petal petal-8"></div>
+            <div class="petal petal-9"></div>
+            <div class="petal petal-10"></div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow animate__animated animate__bounce">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Element -->
+    <audio id="audioPlayer" preload="auto" controls style="display: none;">
+        <source src="ultimoamor.mp3" type="audio/mpeg">
+        <source src="ultimoamor.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Lyrics Display -->
+    <div id="lyricsContainer" class="lyrics-container">
+        <div class="lyrics-overlay"></div>
+        <div class="lyrics-content">
+            <div class="lyrics-header">
+                <h3>🎵 Último Amor</h3>
+                <div class="recognition-status">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Listo para comenzar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lyrics-display" id="lyricsDisplay">
+                <div class="current-line" id="currentLine"></div>
+                <div class="next-line" id="nextLine"></div>
+            </div>
+            <div class="lyrics-controls">
+                <button class="btn btn-outline-light btn-sm" id="pauseBtn" style="display: none;">
+                    <i class="fas fa-pause"></i> Pausar
+                </button>
+                <button class="btn btn-outline-light btn-sm" id="stopBtn" style="display: none;">
+                    <i class="fas fa-stop"></i> Detener
+                </button>
+            </div>
         </div>
     </div>
 
-    <script src="greeting.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Prueba de Video - Mimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 1200px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+            line-height: 1.2;
+        }
+        
+        .video-container {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .controls {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+        }
+        
+        .btn-danger:hover {
+            box-shadow: 0 12px 35px rgba(220, 53, 69, 0.4);
+        }
+        
+        .status {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .info-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .info-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        
+        .info-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem 0.8rem;
+                margin: 0.5rem;
+                max-width: 95%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                padding: 0 0.3rem;
+            }
+            
+            .video-container {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+            
+            video {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            
+            .status {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+            
+            .info {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .info-item {
+                padding: 0.8rem;
+            }
+            
+            .info-item h3 {
+                font-size: 1rem;
+            }
+            
+            .info-item p {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0.8rem 0.6rem;
+                margin: 0.3rem;
+                max-width: 98%;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                line-height: 1.1;
+                margin-bottom: 0.8rem;
+                padding: 0 0.2rem;
+            }
+            
+            .video-container {
+                padding: 0.8rem;
+                margin: 0.8rem 0;
+            }
+            
+            .btn {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+                max-width: 250px;
+            }
+            
+            .status {
+                font-size: 0.8rem;
+                padding: 0.6rem;
+            }
+            
+            .info-item {
+                padding: 0.6rem;
+            }
+            
+            .info-item h3 {
+                font-size: 0.9rem;
+            }
+            
+            .info-item p {
+                font-size: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .container {
+                padding: 0.6rem 0.4rem;
+                margin: 0.2rem;
+                max-width: 99%;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+                line-height: 1.1;
+                padding: 0 0.1rem;
+            }
+            
+            .video-container {
+                padding: 0.5rem;
+                margin: 0.5rem 0;
+            }
+            
+            .btn {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+                max-width: 220px;
+            }
+            
+            .status {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+            }
+            
+            .info-item {
+                padding: 0.5rem;
+            }
+            
+            .info-item h3 {
+                font-size: 0.8rem;
+            }
+            
+            .info-item p {
+                font-size: 0.7rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 La Conclusión de Esta Historia Que Se Está Escribiendo</h1>
+        
+        <div class="video-container">
+            <video id="testVideo" controls preload="metadata">
+                <source src="mimi.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento video.
+            </video>
+        </div>
+        
+        <div class="controls">
+            <button id="startFinalBtn" class="btn">
+                <i class="fas fa-play"></i> Comenzar Conclusión
+            </button>
+        </div>
+        
+        <div class="status" id="status">
+            💕 Presiona "Comenzar Conclusión" para ver la conclusión de nuestra historia
+        </div>
+        
+        <!-- Mensaje final con imágenes -->
+        <div id="finalMessage" style="display: none; text-align: center; margin-top: 40px; padding: 40px; background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 192, 203, 0.2)); border-radius: 30px; border: 3px solid rgba(255, 182, 193, 0.4); backdrop-filter: blur(15px);">
+            <h2 style="color: #2c3e50; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                💕 Lo que quiero decir con todo esto es:
+            </h2>
+            <p id="finalText" style="font-size: 1.8rem; line-height: 1.6; color: #2c3e50; font-family: 'Poppins', sans-serif; font-weight: 500; margin-bottom: 40px; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+                Me has regalado dos de los momentos que jamás olvidaré y donde entendí algo importante:
+            </p>
+            <div id="imageMosaic" style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                    <img id="carlaImage" src="images/carla.jpg" alt="Carla" style="width: 100%; height: 300px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 3px solid rgba(255, 182, 193, 0.5);">
+                </div>
+                <div style="flex: 1; min-width: 300px; max-width: 400px;">
+                    <img id="arbolImage" src="images/arbol.jpg" alt="Árbol" style="width: 100%; height: 300px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 3px solid rgba(255, 182, 193, 0.5);">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mensaje final parte 1 -->
+        <div id="finalMessagePart1" style="display: none; text-align: center; margin-top: 40px; padding: 50px; background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 192, 203, 0.15)); border-radius: 40px; border: 4px solid rgba(255, 182, 193, 0.3); backdrop-filter: blur(20px); box-shadow: 0 25px 60px rgba(0,0,0,0.2);">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Me ha bastado este tiempo que has compartido conmigo para descubrir que tienes un corazón hermoso.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    No hay duda: quiero estar contigo.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    No me importa tu pasado ni lo que viviste; me importa quién eres ahora y lo que estás construyendo conmigo.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Entre tus dudas, miedos e incertidumbres, me has dejado ver tu esencia…<br>
+                    y todo lo que he conocido de ti solo me confirma lo especial que eres.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    No tengo mucho que ofrecer aún, pero lo que tengo, te lo entrego con sinceridad.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Aún hay cosas que puedo demostrar con el tiempo,<br>
+                    pero esto —mi forma de sentir, de cuidar, de creer— es todo lo que soy por ahora.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Mensaje final parte 2 -->
+        <div id="finalMessagePart2" style="display: none; text-align: center; margin-top: 40px; padding: 50px; background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 192, 203, 0.15)); border-radius: 40px; border: 4px solid rgba(255, 182, 193, 0.3); backdrop-filter: blur(20px); box-shadow: 0 25px 60px rgba(0,0,0,0.2);">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Y por todo lo que has hecho y significado para mí,<br>
+                    hoy necesito preguntarte algo.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    No es necesario que respondas hoy;<br>
+                    hazlo cuando lo sientas, cuando tu corazón esté listo.
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Solo quiero que sepas mis intenciones,<br>
+                    que me presento ante ti como un libro abierto,<br>
+                    donde puedas escribir sobre mí a tu ritmo,<br>
+                    a tu manera, sin prisa…
+                </p>
+                <p style="font-size: 1.6rem; line-height: 1.8; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Y que algún día, cuando el momento sea el correcto,<br>
+                    pueda escucharte decir:<br>
+                    <em style="font-style: italic; color: #c44569; font-weight: 600;">"Quiero que lo escribamos juntos."</em>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Declaratoria final -->
+        <div id="declaration" style="display: none; text-align: center; margin-top: 40px; padding: 60px; background: linear-gradient(135deg, rgba(196, 69, 105, 0.1), rgba(255, 182, 193, 0.1)); border-radius: 50px; border: 5px solid rgba(196, 69, 105, 0.4); backdrop-filter: blur(25px); box-shadow: 0 30px 80px rgba(196, 69, 105, 0.3); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); animation: shimmer 3s ease-in-out infinite; pointer-events: none;"></div>
+            <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 1;">
+                <h2 style="color: #c44569; font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; text-shadow: 0 3px 6px rgba(0,0,0,0.2); font-weight: 700;">
+                    💕 Mi Declaración
+                </h2>
+                <p style="font-size: 2.2rem; line-height: 1.6; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    Quisiera ser el último amor que abrace tu vida,
+                </p>
+                <p style="font-size: 2.2rem; line-height: 1.6; color: #2c3e50; font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    el último suspiro que tu corazón elija.
+                </p>
+                <p style="font-size: 2.4rem; line-height: 1.6; color: #c44569; font-family: 'Playfair Display', serif; font-weight: 700; text-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                    ¿Me lo permitirías?
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Audio de fondo -->
+    <audio id="backgroundAudio" preload="auto" style="display: none;">
+        <source src="ultimoamor.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        const video = document.getElementById('testVideo');
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const status = document.getElementById('status');
+        const startFinalBtn = document.getElementById('startFinalBtn');
+        
+        function updateStatus(message, type = 'info') {
+            status.innerHTML = message;
+            status.style.background = type === 'error' ? 'rgba(220, 53, 69, 0.2)' : 
+                                     type === 'success' ? 'rgba(40, 167, 69, 0.2)' : 
+                                     'rgba(255, 255, 255, 0.1)';
+        }
+        
+        function startFinalSequence() {
+            console.log('🎬 Iniciando secuencia final');
+            updateStatus('🎬 Iniciando el final de nuestra historia...');
+            
+            // Ocultar controles del video
+            video.controls = false;
+            video.style.width = '100%';
+            video.style.height = '100%';
+            video.style.objectFit = 'cover';
+            
+            // Configurar audio al 10%
+            backgroundAudio.volume = 0.1;
+            
+            // Reproducir audio y video simultáneamente
+            Promise.all([
+                backgroundAudio.play(),
+                video.play()
+            ]).then(() => {
+                updateStatus('🎵 Audio y video iniciados (volumen 10%)');
+                console.log('✅ Audio y video iniciados correctamente');
+                
+                // Después de 56 segundos, subir volumen al 100%
+                setTimeout(() => {
+                    backgroundAudio.volume = 1.0;
+                    updateStatus('🔊 Volumen restaurado al 100%');
+                    console.log('🔊 Volumen restaurado al 100%');
+                }, 56000); // 56 segundos
+                
+            }).catch(error => {
+                updateStatus('❌ Error iniciando secuencia: ' + error.message, 'error');
+                console.error('❌ Error:', error);
+            });
+            
+            // Cuando termine el video
+            video.addEventListener('ended', function() {
+                updateStatus('💕 ¡Historia completada! Mostrando mensaje final...');
+                console.log('💕 Historia completada');
+                
+                // Ocultar el video y mostrar el mensaje final
+                setTimeout(() => {
+                    video.style.display = 'none';
+                    showFinalMessage();
+                }, 1000);
+            });
+        }
+        
+        function showFinalMessage() {
+            console.log('💕 Mostrando mensaje final con imágenes');
+            const finalMessage = document.getElementById('finalMessage');
+            if (finalMessage) {
+                finalMessage.style.display = 'block';
+                finalMessage.style.opacity = '0';
+                finalMessage.style.transform = 'translateY(30px)';
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    finalMessage.style.transition = 'all 1s ease';
+                    finalMessage.style.opacity = '1';
+                    finalMessage.style.transform = 'translateY(0)';
+                }, 100);
+                
+                // Ocultar el status
+                const status = document.getElementById('status');
+                if (status) {
+                    status.style.display = 'none';
+                }
+                
+                // Después de 8 segundos, ocultar este mensaje y mostrar parte 1
+                setTimeout(() => {
+                    hideFinalMessage();
+                    setTimeout(() => {
+                        showFinalMessagePart1();
+                    }, 1000);
+                }, 8000);
+            }
+        }
+        
+        function hideFinalMessage() {
+            const finalMessage = document.getElementById('finalMessage');
+            if (finalMessage) {
+                finalMessage.style.transition = 'all 1s ease';
+                finalMessage.style.opacity = '0';
+                finalMessage.style.transform = 'translateY(-30px)';
+                setTimeout(() => {
+                    finalMessage.style.display = 'none';
+                }, 1000);
+            }
+        }
+        
+        function showFinalMessagePart1() {
+            console.log('💕 Mostrando mensaje final parte 1');
+            const finalMessagePart1 = document.getElementById('finalMessagePart1');
+            if (finalMessagePart1) {
+                finalMessagePart1.style.display = 'block';
+                finalMessagePart1.style.opacity = '0';
+                finalMessagePart1.style.transform = 'translateY(30px)';
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    finalMessagePart1.style.transition = 'all 1s ease';
+                    finalMessagePart1.style.opacity = '1';
+                    finalMessagePart1.style.transform = 'translateY(0)';
+                }, 100);
+                
+                // Después de 23 segundos, ocultar este mensaje y mostrar parte 2
+                setTimeout(() => {
+                    hideFinalMessagePart1();
+                    setTimeout(() => {
+                        showFinalMessagePart2();
+                    }, 1000);
+                }, 23000);
+            }
+        }
+        
+        function hideFinalMessagePart1() {
+            const finalMessagePart1 = document.getElementById('finalMessagePart1');
+            if (finalMessagePart1) {
+                finalMessagePart1.style.transition = 'all 1s ease';
+                finalMessagePart1.style.opacity = '0';
+                finalMessagePart1.style.transform = 'translateY(-30px)';
+                setTimeout(() => {
+                    finalMessagePart1.style.display = 'none';
+                }, 1000);
+            }
+        }
+        
+        function showFinalMessagePart2() {
+            console.log('💕 Mostrando mensaje final parte 2');
+            const finalMessagePart2 = document.getElementById('finalMessagePart2');
+            if (finalMessagePart2) {
+                finalMessagePart2.style.display = 'block';
+                finalMessagePart2.style.opacity = '0';
+                finalMessagePart2.style.transform = 'translateY(30px)';
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    finalMessagePart2.style.transition = 'all 1s ease';
+                    finalMessagePart2.style.opacity = '1';
+                    finalMessagePart2.style.transform = 'translateY(0)';
+                }, 100);
+                
+                // Después de 23 segundos, ocultar este mensaje y mostrar la declaratoria
+                setTimeout(() => {
+                    hideFinalMessagePart2();
+                    setTimeout(() => {
+                        showDeclaration();
+                    }, 1000);
+                }, 23000);
+            }
+        }
+        
+        function hideFinalMessagePart2() {
+            const finalMessagePart2 = document.getElementById('finalMessagePart2');
+            if (finalMessagePart2) {
+                finalMessagePart2.style.transition = 'all 1s ease';
+                finalMessagePart2.style.opacity = '0';
+                finalMessagePart2.style.transform = 'translateY(-30px)';
+                setTimeout(() => {
+                    finalMessagePart2.style.display = 'none';
+                }, 1000);
+            }
+        }
+        
+        function showDeclaration() {
+            console.log('💕 Mostrando declaratoria final');
+            const declaration = document.getElementById('declaration');
+            if (declaration) {
+                declaration.style.display = 'block';
+                declaration.style.opacity = '0';
+                declaration.style.transform = 'translateY(30px)';
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    declaration.style.transition = 'all 1.5s ease';
+                    declaration.style.opacity = '1';
+                    declaration.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        }
+        
+        // Evento del botón
+        startFinalBtn.addEventListener('click', function() {
+            startFinalBtn.style.display = 'none';
+            startFinalSequence();
+        });
+        
+        // Eventos del video para debugging
+        video.addEventListener('loadedmetadata', function() {
+            console.log('✅ Video cargado correctamente');
+        });
+        
+        video.addEventListener('error', function(e) {
+            updateStatus('❌ Error cargando el video: ' + e.message, 'error');
+            console.error('❌ Error del video:', e);
+        });
+        
+        // Inicializar
+        updateStatus('💕 Presiona "Comenzar Final" para ver el final de nuestra historia');
+    </script>
+</body>
+</html>
